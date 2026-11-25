@@ -1,37 +1,55 @@
-// Reveal on scroll: a single observer, staggered per group.
 (() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal on scroll: un observer, con stagger entre hermanos
   const items = document.querySelectorAll('[data-reveal]');
-
-  // Stagger siblings that enter together (list items, gallery tiles)
-  items.forEach((el, i) => {
-    const parent = el.parentElement;
-    const siblings = [...parent.children].filter(c => c.hasAttribute('data-reveal'));
-    if (siblings.length > 1) {
-      el.style.setProperty('--d', `${siblings.indexOf(el) * 0.12}s`);
-    }
+  items.forEach((el) => {
+    const siblings = [...el.parentElement.children].filter(c => c.hasAttribute('data-reveal'));
+    if (siblings.length > 1) el.style.setProperty('--d', `${siblings.indexOf(el) * 0.1}s`);
   });
+  if (!reduce) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    items.forEach((el) => io.observe(el));
+  } else {
+    items.forEach((el) => el.classList.add('is-in'));
+  }
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-in');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  // Barra superior: toma el tema de la sección que está bajo ella
+  const nav = document.querySelector('.nav');
+  const themed = [...document.querySelectorAll('[data-theme]')].filter(el => el !== nav);
+  const updateNav = () => {
+    const probe = nav.offsetHeight / 2 + 1;
+    let current = null;
+    for (const sec of themed) {
+      const r = sec.getBoundingClientRect();
+      if (r.top <= probe && r.bottom > probe) { current = sec; break; }
+    }
+    if (current) nav.dataset.theme = current.dataset.theme;
+  };
+  let navTick = false;
+  window.addEventListener('scroll', () => {
+    if (navTick) return;
+    navTick = true;
+    requestAnimationFrame(() => { updateNav(); navTick = false; });
+  }, { passive: true });
+  updateNav();
 
-  items.forEach((el) => io.observe(el));
-
-  // Halftone field drifts with scroll, only while the hero is visible
+  // Halftone del hero: se mueve con el scroll
   const dots = document.querySelector('.hero__dots');
-  if (dots && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (dots && !reduce) {
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        const y = Math.min(window.scrollY, 900);
-        dots.style.setProperty('--shift', `${y * -0.25}px`);
+        dots.style.setProperty('--shift', `${Math.min(window.scrollY, 900) * -0.25}px`);
         ticking = false;
       });
     }, { passive: true });

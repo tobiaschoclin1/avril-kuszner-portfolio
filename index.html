@@ -8,11 +8,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
-<header class="nav">
+<header class="nav" data-theme="red">
   <a href="#inicio" class="nav__mark">AK</a>
   <nav>
     <a href="#experiencia">Experiencia</a>
@@ -24,7 +24,7 @@
 
 <main>
 
-<section class="screen hero" id="inicio">
+<section class="screen hero" id="inicio" data-theme="red">
   <div class="hero__dots" aria-hidden="true"></div>
   <h1 class="hero__name" data-reveal>
     <span class="line">Avril</span>
@@ -33,7 +33,7 @@
   <p class="hero__lede" data-reveal>Publicidad, social media y marketing digital para marcas que quieren que las personas se detengan a mirar.</p>
 </section>
 
-<section class="screen about">
+<section class="screen about" data-theme="paper">
   <div class="about__text">
     <p class="statement" data-reveal>Hola, soy Avril. Licenciada en Publicidad. Creo ideas que conectan de verdad con las personas: <em>creatividad, cultura y estrategia</em> en la misma frase.</p>
     <p class="body" data-reveal>Tengo experiencia diversa en proyectos publicitarios y gestión de redes. Disfruto trabajar en equipo y siempre estoy en busca de nuevos aprendizajes y desafíos.</p>
@@ -41,7 +41,7 @@
   <img class="about__portrait" src="assets/portrait.webp" alt="Avril Kuszner" data-reveal width="263" height="622">
 </section>
 
-<section class="screen skills" id="experiencia">
+<section class="screen skills" id="experiencia" data-theme="paper">
   <h2 class="section-title" data-reveal>Lo que hago</h2>
   <ul class="skills__list">
     <li data-reveal><span>01</span><h3>Marketing digital</h3></li>
@@ -51,16 +51,16 @@
   </ul>
 </section>
 
-<section class="projects" id="proyectos">
+<section class="projects" id="proyectos" data-theme="ink">
   <h2 class="section-title section-title--red" data-reveal>Proyectos destacados</h2>
 
   <article class="case" data-reveal>
-    <div class="case__meta">
+    <figure class="case__photo">
+      <img src="assets/rojo-caso.webp" alt="Avril presentando la campaña Terreno fértil" loading="lazy">
+    </figure>
+    <div class="case__content">
       <p class="case__tag">Publicidad · Club Atlético Independiente</p>
       <h3 class="case__title">Rojo inclusivo</h3>
-      <figure class="case__photo"><img src="assets/rojo-caso.webp" alt="Avril presentando la campaña Terreno fértil" loading="lazy"></figure>
-    </div>
-    <div class="case__body">
       <div class="case__block">
         <h4>El desafío</h4>
         <p>Comunicar el compromiso de Independiente con la inclusión de personas con autismo, a través de la creación de un palco sensorial.</p>
@@ -77,13 +77,13 @@
     </div>
   </article>
 
-  <article class="case case--flip" data-reveal>
-    <div class="case__meta">
+  <article class="case" data-reveal>
+    <figure class="case__photo">
+      <img src="assets/radio-caso.webp" alt="Avril presentando el proyecto de reposicionamiento de Radio Nacional" loading="lazy">
+    </figure>
+    <div class="case__content">
       <p class="case__tag">Reposicionamiento · Radio Nacional</p>
       <h3 class="case__title">Radio Nacional</h3>
-      <figure class="case__photo case__photo--tall"><img src="assets/radio-caso.webp" alt="Avril presentando el proyecto de reposicionamiento de Radio Nacional" loading="lazy"></figure>
-    </div>
-    <div class="case__body">
       <div class="case__block">
         <h4>El desafío</h4>
         <p>Radio Nacional enfrentaba una percepción politizada que dificultaba su conexión con el público general, especialmente con las audiencias más jóvenes.</p>
@@ -100,62 +100,58 @@
     </div>
   </article>
 
-  <div class="block-head" data-reveal>
-    <h3>Piezas gráficas</h3>
-    <p>Campañas para Independiente y Radio Nacional, pensadas para feed, stories y vía pública.</p>
-  </div>
-  <div class="row row--h" data-reveal>
-    <img src="assets/rojo-mundial.webp" alt="Pieza Rojo inclusivo: No tiene que ser suerte, tiene que ser decisión" loading="lazy">
-    <img src="assets/rojo-penal.webp" alt="Pieza Rojo inclusivo, versión fútbol" loading="lazy">
-  </div>
-  <div class="row row--v" data-reveal>
-    <img src="assets/radio-gualeguay.webp" alt="Radio Nacional: desde Mar del Plata hasta Gualeguay" loading="lazy">
-    <img src="assets/radio-sarandi.webp" alt="Radio Nacional: desde Sarandí hasta cada rincón de la Argentina" loading="lazy">
-    <img src="assets/radio-calchin.webp" alt="Radio Nacional: desde Rosario hasta Calchín" loading="lazy">
-  </div>
-
-  <div class="block-head" data-reveal>
-    <h3>Audiovisual</h3>
-    <p>Piezas en video para campañas de marca y difusión.</p>
-  </div>
-  <div class="row row--video" data-reveal>
-    <video src="assets/video-campana-1.mp4" poster="assets/video-campana-1-poster.jpg" controls preload="metadata" playsinline></video>
-    <video src="assets/video-campana-2.mp4" poster="assets/video-campana-2-poster.jpg" controls preload="metadata" playsinline></video>
-  </div>
-
-  <div class="block-head" data-reveal>
-    <h3>Community manager</h3>
-    <p>Gestión de redes para marcas de moda, alimentos y automotriz.</p>
-  </div>
-
-  <div class="brand" data-reveal>
-    <h4 class="brand__name">Amaika Indumentaria <span>Moda</span></h4>
-    <div class="row row--cm">
-      <img src="assets/cm-amaika-arde.webp" alt="Amaika: campaña Arde SS26, 30% off" loading="lazy">
-      <img src="assets/cm-amaika-flybox.webp" alt="Flybox: De tu for you page de Tiktok a la puerta de tu casa" loading="lazy">
-      <img src="assets/cm-amaika-dodge.webp" alt="Dodge Beiro: Este San Valentín, volvé a enamorarte de tu auto" loading="lazy">
+  <div class="block" data-reveal>
+    <h3 class="block__title">Piezas gráficas</h3>
+    <p class="block__lede">Campañas para Independiente y Radio Nacional, pensadas para feed, stories y vía pública.</p>
+    <div class="grid grid--2">
+      <div class="frame frame--h"><img src="assets/rojo-mundial.webp" alt="Pieza Rojo inclusivo: No tiene que ser suerte, tiene que ser decisión" loading="lazy"></div>
+      <div class="frame frame--h"><img src="assets/rojo-penal.webp" alt="Pieza Rojo inclusivo, versión fútbol" loading="lazy"></div>
+    </div>
+    <div class="grid grid--3 grid--gap-top">
+      <div class="frame frame--v"><img src="assets/radio-gualeguay.webp" alt="Radio Nacional: desde Mar del Plata hasta Gualeguay" loading="lazy"></div>
+      <div class="frame frame--v"><img src="assets/radio-calchin.webp" alt="Radio Nacional: desde Rosario hasta Calchín" loading="lazy"></div>
+      <div class="frame frame--v"><img src="assets/radio-sarandi.webp" alt="Radio Nacional: desde Sarandí hasta cada rincón de la Argentina" loading="lazy"></div>
     </div>
   </div>
 
-  <div class="brand" data-reveal>
-    <h4 class="brand__name">Distribuidora El Criollo <span>Alimentos y HORECA</span></h4>
-    <div class="row row--cm">
-      <img src="assets/cm-elcriollo-lavazza.webp" alt="Lavazza: Animate a transportarte" loading="lazy">
-      <img src="assets/cm-elcriollo-silk.webp" alt="Silk: llevando una caja ahorrás 35%" loading="lazy">
-      <img src="assets/cm-elcriollo-promo.webp" alt="Promo NotCo 2x1, animate al cambio" loading="lazy">
-      <img src="assets/cm-elcriollo-molixana.webp" alt="Molixana: pasta de sémola de trigo duro" loading="lazy">
-      <img src="assets/cm-elcriollo-chacabuco.webp" alt="Chacabuco: nuevo lanzamiento" loading="lazy">
-      <img src="assets/cm-elcriollo-serenisima.webp" alt="Nuevo para pastelería y heladería, Serenísima profesional" loading="lazy">
+  <div class="block" data-reveal>
+    <h3 class="block__title">Audiovisual</h3>
+    <p class="block__lede">Piezas en video para campañas de marca y difusión.</p>
+    <div class="grid grid--2">
+      <div class="frame frame--video"><video src="assets/video-campana-1.mp4" poster="assets/video-campana-1-poster.jpg" controls preload="metadata" playsinline></video></div>
+      <div class="frame frame--video"><video src="assets/video-campana-2.mp4" poster="assets/video-campana-2-poster.jpg" controls preload="metadata" playsinline></video></div>
+    </div>
+  </div>
+
+  <div class="block" data-reveal>
+    <h3 class="block__title">Community manager</h3>
+    <p class="block__lede">Gestión de redes para marcas de moda, alimentos y automotriz.</p>
+
+    <h4 class="brand">Amaika Indumentaria <span>Moda</span></h4>
+    <div class="grid grid--3">
+      <div class="frame frame--p"><img src="assets/cm-amaika-arde.webp" alt="Amaika: campaña Arde SS26, 30% off" loading="lazy"></div>
+      <div class="frame frame--p"><img src="assets/cm-amaika-flybox.webp" alt="Flybox: De tu for you page de Tiktok a la puerta de tu casa" loading="lazy"></div>
+      <div class="frame frame--p"><img src="assets/cm-amaika-dodge.webp" alt="Dodge Beiro: Este San Valentín, volvé a enamorarte de tu auto" loading="lazy"></div>
+    </div>
+
+    <h4 class="brand">Distribuidora El Criollo <span>Alimentos y HORECA</span></h4>
+    <div class="grid grid--3">
+      <div class="frame frame--p"><img src="assets/cm-elcriollo-lavazza.webp" alt="Lavazza: Animate a transportarte" loading="lazy"></div>
+      <div class="frame frame--p"><img src="assets/cm-elcriollo-silk.webp" alt="Silk: llevando una caja, ahorrás 35%" loading="lazy"></div>
+      <div class="frame frame--p"><img src="assets/cm-elcriollo-promo.webp" alt="Promo NotCo 2x1, animate al cambio" loading="lazy"></div>
+      <div class="frame frame--p"><img src="assets/cm-elcriollo-molixana.webp" alt="Molixana: pasta de sémola de trigo duro" loading="lazy"></div>
+      <div class="frame frame--p"><img src="assets/cm-elcriollo-chacabuco.webp" alt="Chacabuco: nuevo lanzamiento" loading="lazy"></div>
+      <div class="frame frame--p"><img src="assets/cm-elcriollo-serenisima.webp" alt="Nuevo para pastelería y heladería, Serenísima profesional" loading="lazy"></div>
     </div>
   </div>
 </section>
 
-<section class="screen role" id="rol">
+<section class="screen role" id="rol" data-theme="paper">
   <h2 class="role__title" data-reveal>Mi rol <em>detrás de las marcas</em></h2>
   <p class="role__text" data-reveal>A lo largo de mi experiencia participé en la gestión de redes sociales, creación de contenido y planificación estratégica para marcas de distintos rubros, adaptando cada comunicación a sus objetivos y audiencias.</p>
 </section>
 
-<section class="screen contact" id="contacto">
+<section class="screen contact" id="contacto" data-theme="red">
   <h2 class="contact__title" data-reveal>Trabajemos <em>juntos</em></h2>
   <p class="contact__text" data-reveal>Me apasiona crear estrategias, desarrollar contenido y construir marcas que conecten con las personas. Si creés que puedo aportar valor a tu proyecto o equipo, me encantaría conversar.</p>
   <ul class="contact__links" data-reveal>
@@ -167,7 +163,7 @@
 
 </main>
 
-<footer class="footer">
+<footer class="footer" data-theme="paper">
   <p>© 2026 Avril Kuszner</p>
 </footer>
 
