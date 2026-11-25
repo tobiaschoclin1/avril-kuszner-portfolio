@@ -375,8 +375,7 @@ a { color: inherit; }
 }
 .grid--radio .frame--v {
   flex: 0 0 auto;
-  height: min(74svh, 640px);
-  width: auto;
+  width: min(calc((100% - 2 * var(--gap)) / 3), calc(74svh * 9 / 16));
   aspect-ratio: 9 / 16;
 }
 @media (max-width: 560px) {
