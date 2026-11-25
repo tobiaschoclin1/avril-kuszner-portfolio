@@ -33,13 +33,20 @@
     }
     if (current) nav.dataset.theme = current.dataset.theme;
   };
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const p = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+    nav.style.setProperty('--progress', p.toFixed(4));
+  };
   let navTick = false;
   window.addEventListener('scroll', () => {
     if (navTick) return;
     navTick = true;
-    requestAnimationFrame(() => { updateNav(); navTick = false; });
+    requestAnimationFrame(() => { updateNav(); updateProgress(); navTick = false; });
   }, { passive: true });
+  window.addEventListener('resize', updateProgress);
   updateNav();
+  updateProgress();
 
   // Halftone del hero: se mueve con el scroll
   const dots = document.querySelector('.hero__dots');
