@@ -91,13 +91,13 @@ a { color: inherit; }
 }
 
 /* ---------- Reveal ---------- */
-[data-reveal] {
+.js-reveal [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 32px, 0);
   transition: opacity .9s var(--ease), transform .9s var(--ease);
   transition-delay: var(--d, 0s);
 }
-[data-reveal].is-in { opacity: 1; transform: none; }
+.js-reveal [data-reveal].is-in { opacity: 1; transform: none; }
 
 /* ---------- About ---------- */
 .about {
@@ -288,22 +288,22 @@ a { color: inherit; }
 }
 
 /* ---------- Animaciones de entrada (scroll) ---------- */
-[data-reveal="scale"] {
+.js-reveal [data-reveal="scale"] {
   opacity: 0;
   transform: scale(.94) translate3d(0, 24px, 0);
   transition: opacity 1s var(--ease), transform 1.2s var(--ease);
   transition-delay: var(--d, 0s);
 }
-[data-reveal="scale"].is-in { opacity: 1; transform: none; }
+.js-reveal [data-reveal="scale"].is-in { opacity: 1; transform: none; }
 
-[data-reveal="clip"] {
+.js-reveal [data-reveal="clip"] {
   opacity: 1;
   transform: none;
   clip-path: inset(0 0 100% 0);
   transition: clip-path 1.2s var(--ease), opacity .4s;
   transition-delay: var(--d, 0s);
 }
-[data-reveal="clip"].is-in { clip-path: inset(0 0 0 0); }
+.js-reveal [data-reveal="clip"].is-in { clip-path: inset(0 0 0 0); }
 
 /* ---------- Hover: piezas, fotos y links ---------- */
 .frame, .case__photo { transition: transform .6s var(--ease), box-shadow .6s var(--ease); }
@@ -364,4 +364,22 @@ a { color: inherit; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   [data-reveal] { opacity: 1; transform: none; }
+}
+
+/* ---------- Posters de Radio Nacional: entran en el alto de la pantalla ---------- */
+.grid--radio {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--gap);
+}
+.grid--radio .frame--v {
+  flex: 0 0 auto;
+  height: min(74svh, 640px);
+  width: auto;
+  aspect-ratio: 9 / 16;
+}
+@media (max-width: 560px) {
+  .grid--radio { flex-direction: column; align-items: center; }
+  .grid--radio .frame--v { height: auto; width: min(100%, 320px); }
 }
