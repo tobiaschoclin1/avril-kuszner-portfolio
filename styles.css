@@ -250,9 +250,10 @@ a { color: inherit; }
 .gallery__tile--e span { color: var(--ink); }
 .gallery__tile:hover { transform: scale(.985); }
 .gallery__tile { margin: 0; padding: 0; background: #111; }
-.gallery__tile img, .gallery__tile video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery__tile img, .gallery__tile video { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; display: block; }
 .gallery--radio .gallery__tile { aspect-ratio: 9 / 16; }
 .gallery--radio .gallery__tile img { object-fit: contain; background: var(--red); }
+.gallery--cm { grid-template-columns: 1fr; }
 .gallery--cm .gallery__tile { aspect-ratio: auto; }
 .gallery--cm .gallery__tile img { height: auto; object-fit: contain; background: #fff; }
 .about { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end; }
