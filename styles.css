@@ -247,9 +247,9 @@ a { color: inherit; }
 }
 
 /* ---------- Mi rol ---------- */
-.role { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; max-width: 1280px; margin: 0 auto; width: 100%; }
+.role { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 48px; align-items: end; max-width: 1280px; margin: 0 auto; width: 100%; }
 .role__title { grid-column: 1 / -1; margin: 0; }
-.role__title em { color: var(--red); display: block; font-size: .5em; letter-spacing: 0; margin-top: .2em; }
+.role__title em { color: var(--red); display: block; font-size: .5em; letter-spacing: 0; margin-top: .2em; line-height: 1.1; }
 .role__text { max-width: 46ch; font-size: clamp(18px, 1.5vw, 24px); line-height: 1.45; margin: 0; }
 
 /* ---------- Contacto ---------- */
@@ -369,9 +369,8 @@ a { color: inherit; }
 /* ---------- Posters de Radio Nacional: entran en el alto de la pantalla ---------- */
 .grid--radio {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
-  gap: var(--gap);
 }
 .grid--radio .frame--v {
   flex: 0 0 auto;

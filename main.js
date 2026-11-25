@@ -34,7 +34,7 @@
   const nav = document.querySelector('.nav');
   const themed = [...document.querySelectorAll('[data-theme]')].filter(el => el !== nav);
   const updateNav = () => {
-    const probe = nav.offsetHeight / 2 + 1;
+    const probe = nav.getBoundingClientRect().bottom + 2;
     for (const sec of themed) {
       const r = sec.getBoundingClientRect();
       if (r.top <= probe && r.bottom > probe) { nav.dataset.theme = sec.dataset.theme; break; }
@@ -70,6 +70,4 @@
   window.addEventListener('load', onScroll);
   onScroll();
 
-  // Red de seguridad: si algo quedó oculto tras cargar, lo mostramos igual
-  setTimeout(() => items.forEach((el) => el.classList.add('is-in')), 6000);
 })();
